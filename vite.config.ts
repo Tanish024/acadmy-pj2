@@ -20,11 +20,10 @@ function copyIndexTo404() {
 }
 
 // Compute base path dynamically:
-// - If GITHUB_REPOSITORY is present (GitHub Actions), use `/<repo-name>/`
-// - Otherwise use './' for maximum portability
+// Default to '/animal-pj1/' for GitHub Pages repository
 const repoName = process.env.GITHUB_REPOSITORY
   ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/`
-  : process.env.BASE_PATH || './'
+  : process.env.BASE_PATH || '/animal-pj1/'
 
 // https://vite.dev/config/
 export default defineConfig({
