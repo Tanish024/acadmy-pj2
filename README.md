@@ -44,7 +44,7 @@ An applied AI learning platform engineered with React, Vite, TypeScript, Tailwin
 
 ```bash
 # Clone the repository
-git clone <your-github-repo-url>
+git clone https://github.com/Tanish024/acadmy-pj2.git
 cd pj2
 
 # Install dependencies
