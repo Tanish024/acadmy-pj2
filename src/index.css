@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #FAFAF9;
+  --surface: #FFFFFF;
+  --surface-hover: #F5F4F0;
+  --border: #ECEAE6;
+  --border-subtle: #ECEAE6;
+  --text: #1E2430;
+  --muted: #6B7280;
+  --primary: #6C7AE0;
+  --primary-hover: #5A68CC;
+  --primary-tint: #EEF0FD;
+  --accent: #F2A57C;
+  --accent-hover: #E79465;
+  --accent-tint: #FDF4EE;
+  --accent-text: #1E2430;
+  --success: #6FB28F;
+  --success-tint: #EFF8F3;
+  --ring: #6C7AE0;
+}
+
+.dark {
+  --background: #0E1116;
+  --surface: #151A21;
+  --surface-hover: #1C232D;
+  --border: #232A33;
+  --border-subtle: #232A33;
+  --text: #E8ECF1;
+  --muted: #94A0AE;
+  --primary: #8B97F0;
+  --primary-hover: #7886E5;
+  --primary-tint: #1B2036;
+  --accent: #F0A97F;
+  --accent-hover: #DF9567;
+  --accent-tint: #2B1E17;
+  --accent-text: #0E1116;
+  --success: #7FC2A0;
+  --success-tint: #13271F;
+  --ring: #8B97F0;
+}
+
+@theme {
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-text-main: var(--text);
+  --color-text-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-tint: var(--primary-tint);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-tint: var(--accent-tint);
+  --color-accent-text: var(--accent-text);
+  --color-success: var(--success);
+  --color-success-tint: var(--success-tint);
+  --color-ring: var(--ring);
+
+  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+  --shadow-modal: 0 12px 30px -4px rgba(0, 0, 0, 0.08);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Subtle focus ring style for accessibility (WCAG AA) */
+.focus-ring {
+  outline: none;
+  transition: box-shadow 150ms ease;
+}
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
